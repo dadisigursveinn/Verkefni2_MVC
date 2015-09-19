@@ -1,6 +1,7 @@
 <?php  
 //https://blog.udemy.com/php-mvc-framework-tutorial/ :D
-class Book {
+//http://php-html.net/tutorials/model-view-controller-in-php/
+/*class Book {
     public $name;
     public $edition;
     public $releaseYear;
@@ -15,7 +16,7 @@ class Book {
 class Model {
     /*Halda þarf utan um nafn bókar, 
     útgáfu og útgáfuár. Aðferðir sem sjá um að
-    sækja bókalista og bókalýsingu.*/
+    sækja bókalista og bókalýsingu.
 
     public $text;
 
@@ -36,12 +37,12 @@ class Model {
         $allBooks = $this -> getBookList ();
         return $allBooks [$name];
     }
-}
-
+}*/
+/*
 class View {
     /*Tekur við input frá notanda ( request) 
     bregst við og uppfærir model eftir þörfum og
-    sendir tilbaka viðeigandi view*/
+    sendir tilbaka viðeigandi view
 
     private $model;
 
@@ -52,7 +53,7 @@ class View {
     public function output() {
         return '<h1>' . $this->model->text .'</h1>';
     }
-}
+}*/
 
 
 
