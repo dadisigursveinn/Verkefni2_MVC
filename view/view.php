@@ -1,11 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bókaverzlun</title>
+</head>
+<body>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <div class="text-center">
 <?php
 /*class View {
@@ -41,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === "GET"){
 
 }
 ?>
- 
+
 <form method="GET" action="" >
 
     <select name="book" >
@@ -57,4 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === "GET"){
     <input type="submit" value="Select">
 
 </form>
+<br>
+<a href="https://github.com/dadisigursveinn/Verkefni2_MVC">Kóði</a>
 </div>
+</body>
+
+</html>

@@ -1,49 +1,23 @@
-<?php  
-//https://blog.udemy.com/php-mvc-framework-tutorial/ :D
-//http://php-html.net/tutorials/model-view-controller-in-php/
-/*class Book {
-    public $name;
-    public $edition;
-    public $releaseYear;
+<!DOCTYPE html>
+<html>
 
-    public function __construct($name, $edition, $releaseYear)
-    {
-        $this->name = $name;
-        $this->edition = $edition;
-        $this->releaseYear = $releaseYear;
-    }
-}
-class Model {
-    /*Halda þarf utan um nafn bókar, 
-    útgáfu og útgáfuár. Aðferðir sem sjá um að
-    sækja bókalista og bókalýsingu.
+<head>
+    <meta charset="UTF-8">
+    <title>Bókaverzlun</title>
+</head>
+<body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    public $text;
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    public function __construct() {
-        $this->text = 'Bókaverzlun Daða Sigursveins';
-    }        
-
-    public function getBookList(){
-        return array(
-            'The Hobbit' => new Book ('The Hobbit, or There and Back Again', '1', '1937'),
-            'The Fellowship of the Ring' => new Book ('Lord of the Rings: The Fellowship of the Ring', '1', '1954'),
-            'The Two Towers' => new Book ('Lord of the Rings: The Two Towers', '1', '1954'),
-            'The Return of the King' => new Book ('Lord of the Rings: The Return of the King', '1', '1955')
-            );
-    }
-
-    public function getBook ($name){
-        $allBooks = $this -> getBookList ();
-        return $allBooks [$name];
-    }
-}*/
-/*
-class View {
+<div class="text-center">
+<?php
+/*class View {
     /*Tekur við input frá notanda ( request) 
     bregst við og uppfærir model eftir þörfum og
     sendir tilbaka viðeigandi view
-
     private $model;
 
     public function __construct(Model $model) {
@@ -54,50 +28,8 @@ class View {
         return '<h1>' . $this->model->text .'</h1>';
     }
 }*/
-
-
-
-class Controller {
-    /*Inniheldur alla “display logic” við 
-    framsetningu gagna (myndun HTML). Hefur
-    beinan aðgang að Model (get data). View 
-    getur búið til callback (t.d. smellur)
-    til Controller*/
-
-    private $model;
-
-    public function __construct (Model $model){
-        $this -> model = $model;
-    }
-
-    public function invoke (){
-        if (!isset ($_GET['book'])){
-            return $this -> model -> getBookList ();
-        }
-
-        else{
-            return $this -> model -> getBook ($_GET['book']);
-        }
-    }
-
-    public function output (){
-        return'<h1>' . $this -> model -> text . '</h1>';
-    }
-
-}
-
-//initiate the triad
-/*
-$model = new Model();
-
-//It is important that the controller and the view share the model
-
-$controller = new Controller($model);
-
-$view = new View($model);
-
-echo $view->output();*/
-
+include("../model/model.php");
+include("../controller/controller.php");
 $model = new Model ();
 
 $controller = new Controller ($model);
@@ -109,12 +41,13 @@ $books= $controller -> invoke ();
 if ($_SERVER['REQUEST_METHOD'] === "GET"){
     if (isset ($_GET['book'])){
         echo "You selected " . $books -> name . " Version: " . $books -> edition . " Release year: " . $books -> releaseYear ;
+        echo "<br><button type=\"button\" onclick=\"history.back();\">Back</button>";
         exit;
     }
 
 }
 ?>
- 
+
 <form method="GET" action="" >
 
     <select name="book" >
@@ -130,3 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === "GET"){
     <input type="submit" value="Select">
 
 </form>
+<br>
+<a href="https://github.com/dadisigursveinn/Verkefni2_MVC">Kóði</a>
+</div>
+</body>
+
+</html>
